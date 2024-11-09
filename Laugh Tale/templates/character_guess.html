@@ -1,0 +1,106 @@
+{% extends 'raftel base.html' %}
+
+{% block raftel %}
+
+
+<body>
+<center>
+
+<h2 id="use" > Guess The Character </h2>
+
+
+<div class="card">
+      <img id="anime_image" src="{{ image }}" class="d-block w-100" alt="..." width="450" height="320">
+</div>
+    
+
+
+<br>
+<br>
+
+
+<div>
+<form method="POST" action = "" class="d-flex" role="search" >
+{{ form.hidden_tag() }}
+    <input class="form-control dark" type="search" id="enter_anime" placeholder="Enter Anime" aria-label="enter_name" name="anime" autocomplete="off">
+    <br/>
+    <br/>
+</div>          
+
+
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-secondary" onclick="hint()">Hint</button>
+  <button type="button" class="btn btn-secondary" onclick="answer()">Answer</button>
+</div>
+
+
+
+<br>
+<br>
+<button type="button" class="btn btn-success" onclick="enter()">SUBMIT</button>
+
+</center>
+
+<script type="text/javascript">
+
+    let length = "{{ length }}";
+    
+    // You can access the Flask variable `titles` here by embedding it into the JavaScript code
+        
+    var user_answer = document.getElementById("enter_anime");
+        
+        
+    
+    let number = 0;    
+    //var image = {{ images }};
+    var titles = {{ name | tojson }};
+        
+    //let image_answer = images[number];
+    var title_answer = titles;
+    var anime_image = document.getElementById("anime_image");
+    var alerts = document.getElementById("alert");
+    var hints = 1;
+    
+    function hint() {
+        
+        let hint_answer = user_answer.value = titles[0];
+        //hint_answer = hint_answer + hints
+        
+        user_answer.value += titles[1];
+        //hints = (hints + 1) % titles.length;
+        user_answer.value += titles[2];
+              
+}
+    
+    
+    function answer() {
+        
+        document.getElementById("enter_anime").value = titles;
+        
+}
+
+    function enter() {
+    
+        //Run conditionals
+        if (user_answer.value.trim() !== title_answer){
+            
+            user_answer.value = "";
+            user_answer.placeholder = "Enter Anime";
+            
+        }
+         else     
+        {
+           
+            window.location.href = "/character_guess";
+            
+            } 
+    
+    
+}
+
+</script>
+
+</body>
+
+
+{% endblock %}

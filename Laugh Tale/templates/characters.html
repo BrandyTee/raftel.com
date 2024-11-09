@@ -1,0 +1,59 @@
+{% extends 'raftel base.html' %}
+
+{% block raftel %}
+
+
+<center>
+
+
+
+<div class="card" style="background-color: #16bab2;" style="width: 20rem;">
+  <img src="{{ image[0] }}" class="card-img-top" alt="..." width="250" height="250">
+  
+  
+   
+  <ul class="list-group list-group-flush" class="text-bg-info">
+      <li class="list-group-item">Name: {{ name[0] }}</li>
+      <li class="list-group-item">Nickames: {{ nickname[0] }}</li>
+      
+      <li class="list-group-item"> {{ about[0] }}</li>
+      
+      
+      
+  </ul>
+    
+  
+  
+</div>
+
+
+
+<br>
+<br>
+
+<h4> Recommended </h4>
+
+<div class="scroll-container">
+  {% for t in range(lengths2) %}
+  <div class="div6">
+    <a href="#">
+      <img  src={{ image_recommendations[t] }} alt="Image 1" width="200" height="250" >
+    </a>
+    <p class="overflow-ellipsis"> {{ title_recommendations[t] }}</p>
+  </div>
+  {% endfor %}
+  
+  
+</div>
+
+
+
+
+<br>
+<br>
+
+</center>
+
+
+
+{% endblock %}

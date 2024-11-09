@@ -1,0 +1,73 @@
+{% extends 'raftel base.html' %}
+
+{% block raftel %}
+
+
+
+<body>
+<center>
+
+<div class="container text-center">
+  <div class="row row-cols-2">
+    <div class="col">
+    
+        <a href="{{ url_for('anime_guess') }}">
+            <div class="card text-bg-dark">          
+                  <img src="{{ url_for('static', filename = 'images/yuji.jpeg') }}" class="card-img" alt="..." width="300" height="210" >          
+              <div class="card-img-overlay">
+                <h5 class="card-title">Anime</h5>
+              </div>
+            </div>
+        </a>
+        
+    </div>
+    <div class="col">
+    
+        <a href="{{ url_for('character_guess') }}">
+            <div class="card text-bg-dark">
+              <img src="{{ url_for('static', filename = 'images/luffy.jpeg') }}" class="card-img" alt="..." width="300" height="210" >
+              <div class="card-img-overlay">
+                <h5 class="card-title">Characters</h5>
+              </div>
+            </div>        
+        </a>
+        
+    </div>
+    
+    <div class="col">
+    
+        <a href="{{ url_for('top_anime') }}">
+            <div class="card text-bg-dark">
+              <img src="{{ url_for('static', filename = 'images/goku.jpeg') }}" class="card-img" alt="..." width="300" height="210" >
+              <div class="card-img-overlay">
+                <h5 class="card-title">Top Anime</h5>
+              </div>
+            </div>        
+        </a>
+        
+    </div>
+    
+    <div class="col">
+    
+        <a href="{{ url_for('top_characters') }}">
+            <div class="card text-bg-dark">
+              <img src="{{ url_for('static', filename = 'images/kingofpirates.jpeg') }}" class="card-img" alt="..." width="300" height="210" >
+              <div class="card-img-overlay">
+                <h5 class="card-title">Top Characters</h5>
+              </div>
+            </div>        
+        </a>
+        
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+</body>
+
+
+{% endblock %}
